@@ -1,7 +1,7 @@
 ---
 # Docker Compose 2.4 is for local development
 # https://www.heroku.com/podcasts/codeish/57-discussing-docker-containers-and-kubernetes-with-a-docker-captain - Source on that.
-version: '2.4'
+version: "2.4"
 
 x-app: &app
   image: rails-app:0.3.0
@@ -20,6 +20,7 @@ x-app: &app
     BOOTSNAP_CACHE_DIR: /usr/src/bootsnap
     HISTFILE: /usr/src/app/log/.bash_history
     PSQL_HISTFILE: /usr/src/app/log/.psql_history
+    NODE_ENV: development
   volumes:
     - .:/usr/src/app:cached
     - bundler:/usr/local/bundle:delegated
@@ -47,6 +48,7 @@ services:
       PSQL_HISTFILE: /root/log/.psql_history
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+      NODE_ENV: development
     restart: on-failure
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
