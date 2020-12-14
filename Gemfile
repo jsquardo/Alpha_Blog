@@ -20,6 +20,7 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 gem "bulma-rails", "~> 0.9.1"
 gem 'awesome_print', :require => 'ap'
+gem 'prettier'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
