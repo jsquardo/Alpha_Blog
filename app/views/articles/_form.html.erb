@@ -1,0 +1,26 @@
+<% if @article.errors.any? %>
+  <h2 class="is-size-3">The following errors prevented the article from getting created.</h2>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for @article do |f| %>
+  <div class="field">
+    <div class="columns">
+      <div class="column is-one-fifth">
+        <%= f.label :title, class: 'label' %>
+        <div class="control">
+          <%= f.text_field :title, class: 'input', type: 'text' %>
+          <%= f.label :description, class: 'label' %>
+          <%= f.text_area :description, class: 'textarea' %>
+        </div>
+        <div>
+          <%= f.submit %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= link_to "Back to article listings", articles_path %>
